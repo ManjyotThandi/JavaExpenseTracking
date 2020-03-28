@@ -1,4 +1,4 @@
-package com.example.codeengine.model;
+package com.example.codeengine.expense.model;
 
 import java.time.Instant;
 
@@ -15,6 +15,7 @@ public class Expense {
 	private Long id;
 	private Instant expenseDate;
 	private String description;
+	private String location;
 
 	// Many of these expense can go under one category
 	@ManyToOne
@@ -28,11 +29,12 @@ public class Expense {
 
 	}
 
-	public Expense(Long id, Instant expenseDate, String description, Category category, User user) {
+	public Expense(Long id, Instant expenseDate, String description, String location, Category category, User user) {
 		super();
 		this.id = id;
 		this.expenseDate = expenseDate;
 		this.description = description;
+		this.location = location;
 		this.category = category;
 		this.user = user;
 	}
@@ -75,6 +77,16 @@ public class Expense {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	@Override
